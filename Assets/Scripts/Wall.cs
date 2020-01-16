@@ -70,8 +70,7 @@ public class Wall : MonoBehaviour
 
         //Vector3 forwardVector = transform.rotation * Vector3.forward;
         //Vector3 upVector = transform.rotation * Vector3.up;
-
-        print("Forward del transform: " + forwardVector.ToString());
+        
 
         Vector3 transformPos = transform.position;
 
@@ -83,8 +82,7 @@ public class Wall : MonoBehaviour
 
         Utils.convertVector(out forward, ref forwardVector);
 
-
-        print("Forward tras convert: (" + forward.x.ToString() + ", " + forward.y.ToString() + ", " + forward.z.ToString() + ")");
+        
 
         Vector3 transformScale = transform.localScale;
 
@@ -108,8 +106,7 @@ public class Wall : MonoBehaviour
         
         FMODLoader.ERRCHECK(result);
 
-
-        print("Forward de FMOD: (" + v1.x.ToString() + ", " + v1.y.ToString() + ", " + v1.z.ToString() + ")");
+        
 
         //geometry.getRotation(out v1, out v2);
         //print("Después");

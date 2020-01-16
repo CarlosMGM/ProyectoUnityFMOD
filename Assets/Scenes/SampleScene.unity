@@ -371,6 +371,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laughButton: 32
+  reverbDependent: 0
+  soundsToAsign:
+    A_TONE: 0
+    WATER_DROP: 0
+    SMACK: 0
 --- !u!1 &629363338
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +606,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laughButton: 0
+  reverbDependent: 0
+  soundsToAsign:
+    A_TONE: 0
+    WATER_DROP: 0
+    SMACK: 0
 --- !u!135 &716973561
 SphereCollider:
   m_ObjectHideFlags: 0

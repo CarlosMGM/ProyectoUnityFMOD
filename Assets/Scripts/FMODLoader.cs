@@ -62,16 +62,20 @@ public class FMODLoader : MonoBehaviour
     {
         string path = "Assets/Sounds/";
         sounds = new Sound[10];
-        result = system.createSound(path + "1560.ogg", MODE.LOOP_NORMAL | MODE._3D, out sounds[0]);
+        result = system.createSound(path + "A-Tone.wav", MODE.DEFAULT | MODE.LOOP_OFF | MODE._3D, out sounds[0]);
         ERRCHECK(result);
 
-        result = system.createSound(path + "ahaha.ogg", MODE.DEFAULT | MODE._3D, out sounds[1]);
+        result = system.createSound(path + "Water Drop.wav", MODE.LOOP_NORMAL| MODE._3D, out sounds[1]);
+        ERRCHECK(result);
+        result = system.createSound(path + "Smack.wav", MODE.DEFAULT | MODE._3D, out sounds[1]);
+        ERRCHECK(result);
     }
 
     public enum SOUNDS
     {
-        MOTOR_1,
-        AHAHA,
+        A_TONE,
+        WATER_DROP,
+        SMACK
     }
 
     public Sound getSound(SOUNDS sound)
