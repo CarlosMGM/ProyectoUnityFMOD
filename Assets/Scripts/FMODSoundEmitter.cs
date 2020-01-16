@@ -10,21 +10,9 @@ public class FMODSoundEmitter : MonoBehaviour
 {
     private ChannelGroup channelGroup;
     Dictionary<FMODLoader.SOUNDS, Channel> channels = new Dictionary<FMODLoader.SOUNDS, Channel>();
-    public KeyCode laughButton;
-    public bool reverbDependent = false;
     RESULT result;
     FMODLoader loader;
 
-
-    [System.Serializable]
-    public struct SoundToAssign
-    {
-        public bool A_TONE;
-        public bool WATER_DROP;
-        public bool SMACK;
-
-    }
-    public SoundToAssign soundsToAsign;
 
     // Start is called before the first frame update
     void Start()
@@ -67,23 +55,23 @@ public class FMODSoundEmitter : MonoBehaviour
         zero.z = 0;
         Vector3 position = transform.position;
         Utils.convertVector(out pos, ref position);
-        if (Input.GetKeyDown(laughButton))
+        
+        foreach(KeyValuePair< FMODLoader.SOUNDS, Channel> channel in channels)
         {
-            playSound(FMODLoader.SOUNDS.A_TONE);
+            channel.Value.set3DAttributes(ref pos, ref zero);
+            FMODLoader.ERRCHECK(result);
         }
-        
-        result = channelGroup.set3DAttributes(ref pos, ref zero);
-        FMODLoader.ERRCHECK(result);
-        
     }
 
 
-    public void playSound(FMODLoader.SOUNDS sound)
+    public void playSound(FMODLoader.SOUNDS sound, bool reverb)
     {
-        Channel channel = channels[sound];
+        Channel channel;
         result = loader.getSystem().playSound(loader.getSound(sound), channelGroup, false, out channel);
         FMODLoader.ERRCHECK(result);
-        
+
+        channels[sound] = channel;
+
         VECTOR pos;
         VECTOR zero;
         zero.x = 0;
@@ -95,7 +83,7 @@ public class FMODSoundEmitter : MonoBehaviour
         result = channels[sound].set3DAttributes(ref pos, ref zero);
         FMODLoader.ERRCHECK(result);
 
-        if (!reverbDependent)
+        if (!reverb)
         {
             result = channels[sound].setReverbProperties(0, 0);
             FMODLoader.ERRCHECK(result);
@@ -104,7 +92,18 @@ public class FMODSoundEmitter : MonoBehaviour
 
     public void stopSound(FMODLoader.SOUNDS sound)
     {
-        result = channels[sound].stop();
-        FMODLoader.ERRCHECK(result);
+        if (channels.ContainsKey(sound))
+        {
+            bool playing;
+            result = channels[sound].isPlaying(out playing);
+            FMODLoader.ERRCHECK(result);
+            if (playing)
+            {
+                result = channels[sound].stop();
+                FMODLoader.ERRCHECK(result);
+                channels.Remove(sound);
+            }
+        }
+            
     }
 }

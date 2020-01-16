@@ -64,10 +64,11 @@ public class FMODLoader : MonoBehaviour
         sounds = new Sound[10];
         result = system.createSound(path + "A-Tone.wav", MODE.DEFAULT | MODE.LOOP_OFF | MODE._3D, out sounds[0]);
         ERRCHECK(result);
-
         result = system.createSound(path + "Water Drop.wav", MODE.LOOP_NORMAL| MODE._3D, out sounds[1]);
         ERRCHECK(result);
-        result = system.createSound(path + "Smack.wav", MODE.DEFAULT | MODE._3D, out sounds[1]);
+        result = system.createSound(path + "Smack.wav", MODE.DEFAULT | MODE._3D, out sounds[2]);
+        ERRCHECK(result);
+        result = system.createSound(path + "steps.wav", MODE.LOOP_NORMAL | MODE._3D, out sounds[3]);
         ERRCHECK(result);
     }
 
@@ -75,7 +76,8 @@ public class FMODLoader : MonoBehaviour
     {
         A_TONE,
         WATER_DROP,
-        SMACK
+        SMACK,
+        STEPS
     }
 
     public Sound getSound(SOUNDS sound)
