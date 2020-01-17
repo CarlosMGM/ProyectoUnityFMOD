@@ -39,35 +39,42 @@ public class SimonDice : MonoBehaviour
 
         introducido = false;
        
-        if (boton1.pressed)
+        if (boton1.pressed && !introducido  )
         {
             botonayuda = 1;
             introducido = true;
+            if (!ok)
+            { soundEmitter.stopSound(FMODLoader.SOUNDS.A_TONE); soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 0.5f); }
         }
-        else if (boton2.pressed)
+        else if (boton2.pressed && !introducido )
         {
             botonayuda = 2;
             introducido = true;
+            if (!ok)
+            { soundEmitter.stopSound(FMODLoader.SOUNDS.A_TONE); soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1.0f); }
         }
-        else if (boton3.pressed)
+        else if (boton3.pressed && !introducido)
         {
             botonayuda = 3;
             introducido = true;
+            if (!ok)
+            { soundEmitter.stopSound(FMODLoader.SOUNDS.A_TONE); soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1.5f); }
         }
         else { botonayuda = 0; ok = false;   }
 
 
-        if (!done1 && introducido && !ok )
+        if (!done1 && introducido && !ok)
         {
             ok = true;
             if (botonayuda == orden1[contador])
                 contador++;
             else if (botonayuda != 0)
-                contador = 0;
-            if(contador==orden1.Length)
+            { contador = 0; Invoke("Wrong", 1); }
+            if (contador == orden1.Length)
             {
                 contador = 0;
                 done1 = true;
+                Invoke("Correct", 1);
             }
         }
         else if (!done2 && introducido && !ok)
@@ -76,11 +83,12 @@ public class SimonDice : MonoBehaviour
             if (botonayuda == orden2[contador])
                 contador++;
             else if (botonayuda != 0)
-                contador = 0;
+            { contador = 0; Invoke("Wrong", 1); }
             if (contador == orden2.Length)
             {
                 contador = 0;
                 done2 = true;
+                Invoke("Correct", 1);
             }
         }
         else if (!done3 && introducido && !ok)
@@ -89,13 +97,15 @@ public class SimonDice : MonoBehaviour
             if (botonayuda == orden3[contador])
                 contador++;
             else if (botonayuda != 0)
-                contador = 0;
+            { contador = 0; Invoke("Wrong", 1); }
             if (contador == orden3.Length)
             {
                 contador = 0;
                 done3 = true;
+                Invoke("Correct", 1);
             }
         }
+        else if(introducido && !ok) ok = true;
     }
 
     void Reproducir()
@@ -138,5 +148,16 @@ public class SimonDice : MonoBehaviour
     void tono3()
     {
         soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1.5f);
+    }
+
+    void Correct()
+    {
+
+        soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.RIGHT, true, 1f);
+    }
+    void Wrong()
+    {
+
+        soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.WRONG, true, 1f);
     }
 }

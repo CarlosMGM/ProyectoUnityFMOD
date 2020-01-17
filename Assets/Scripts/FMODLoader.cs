@@ -70,6 +70,10 @@ public class FMODLoader : MonoBehaviour
         ERRCHECK(result);
         result = system.createSound(path + "steps.wav", MODE.LOOP_NORMAL | MODE._3D, out sounds[3]);
         ERRCHECK(result);
+        result = system.createSound(path + "WrongAnswer.wav", MODE.DEFAULT | MODE.LOOP_OFF | MODE._3D, out sounds[4]);
+        ERRCHECK(result);
+        result = system.createSound(path + "RightAnswer.wav", MODE.DEFAULT | MODE.LOOP_OFF | MODE._3D, out sounds[5]);
+        ERRCHECK(result);
     }
 
     public enum SOUNDS
@@ -77,7 +81,9 @@ public class FMODLoader : MonoBehaviour
         A_TONE,
         WATER_DROP,
         SMACK,
-        STEPS
+        STEPS,
+        WRONG,
+        RIGHT
     }
 
     public Sound getSound(SOUNDS sound)
