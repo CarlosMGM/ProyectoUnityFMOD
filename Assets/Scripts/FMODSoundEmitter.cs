@@ -106,4 +106,34 @@ public class FMODSoundEmitter : MonoBehaviour
         }
             
     }
+
+    public void playSoundwithPitch(FMODLoader.SOUNDS sound, bool reverb,float pitch)
+    {
+        Channel channel;
+        result = loader.getSystem().playSound(loader.getSound(sound), channelGroup, false, out channel);
+        FMODLoader.ERRCHECK(result);
+
+        channels[sound] = channel;
+
+        VECTOR pos;
+        VECTOR zero;
+        zero.x = 0;
+        zero.y = 0;
+        zero.z = 0;
+        Vector3 position = transform.position;
+        Utils.convertVector(out pos, ref position);
+
+        result = channels[sound].set3DAttributes(ref pos, ref zero);
+        FMODLoader.ERRCHECK(result);
+
+        result = channels[sound].setPitch(pitch);
+        FMODLoader.ERRCHECK(result);
+
+        if (!reverb)
+        {
+            result = channels[sound].setReverbProperties(0, 0);
+            FMODLoader.ERRCHECK(result);
+        }
+
+    }
 }
