@@ -507,7 +507,7 @@ MonoBehaviour:
   num3: {fileID: 232401266}
   num4: {fileID: 1054296973}
   gotera: {fileID: 589035967}
-  trueCombination: 03000000050000000100000005000000
+  trueCombination: 03000000050000000100000004000000
   canvas: {fileID: 1828875301}
   endLevel: {fileID: 873210256}
   result: 0
