@@ -10,6 +10,9 @@ public class SimonDice : MonoBehaviour
     public Trigger boton3;
 
     FMODSoundEmitter soundEmitter;
+    public FMODSoundEmitter soundEmitter1;
+    public FMODSoundEmitter soundEmitter2;
+    public FMODSoundEmitter soundEmitter3;
 
     public int[] orden1 = { 1, 1, 2, 3, 1 };
     public int[] orden2 = { 1, 1, 2, 3, 1 };
@@ -44,21 +47,21 @@ public class SimonDice : MonoBehaviour
             botonayuda = 1;
             introducido = true;
             if (!ok)
-            { soundEmitter.stopSound(FMODLoader.SOUNDS.A_TONE); soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 0.5f); }
+            { soundEmitter1.stopSound(FMODLoader.SOUNDS.A_TONE); soundEmitter1.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 0.5f); }
         }
         else if (boton2.pressed && !introducido )
         {
             botonayuda = 2;
             introducido = true;
             if (!ok)
-            { soundEmitter.stopSound(FMODLoader.SOUNDS.A_TONE); soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1.0f); }
+            { soundEmitter2.stopSound(FMODLoader.SOUNDS.A_TONE); soundEmitter2.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1.0f); }
         }
         else if (boton3.pressed && !introducido)
         {
             botonayuda = 3;
             introducido = true;
             if (!ok)
-            { soundEmitter.stopSound(FMODLoader.SOUNDS.A_TONE); soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1.5f); }
+            { soundEmitter3.stopSound(FMODLoader.SOUNDS.A_TONE); soundEmitter3.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1.5f); }
         }
         else { botonayuda = 0; ok = false;   }
 
@@ -138,16 +141,16 @@ public class SimonDice : MonoBehaviour
 
     void tono1()
     {
-        soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 0.5f);
+        soundEmitter1.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 0.5f);
     }
 
     void tono2()
     {
-        soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1f);
+        soundEmitter2.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1f);
     }
     void tono3()
     {
-        soundEmitter.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1.5f);
+        soundEmitter3.playSoundwithPitch(FMODLoader.SOUNDS.A_TONE, true, 1.5f);
     }
 
     void Correct()

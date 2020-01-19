@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 62545018}
   - component: {fileID: 62545017}
   - component: {fileID: 62545016}
+  - component: {fileID: 62545022}
   m_Layer: 0
   m_Name: Button2
   m_TagString: Untagged
@@ -348,6 +349,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &62545022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62545015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd26c49c022dcc44cbfce227a913775d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &86032978
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +692,7 @@ GameObject:
   - component: {fileID: 434470367}
   - component: {fileID: 434470366}
   - component: {fileID: 434470365}
+  - component: {fileID: 434470371}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -787,6 +801,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434470371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434470364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd26c49c022dcc44cbfce227a913775d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &522404395
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,8 +822,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 522404397}
-  - component: {fileID: 522404398}
   - component: {fileID: 522404396}
+  - component: {fileID: 522404398}
   m_Layer: 0
   m_Name: SimonDiceManager
   m_TagString: Untagged
@@ -820,6 +846,9 @@ MonoBehaviour:
   boton1: {fileID: 685171397}
   boton2: {fileID: 62545016}
   boton3: {fileID: 434470365}
+  soundEmitter1: {fileID: 685171398}
+  soundEmitter2: {fileID: 62545022}
+  soundEmitter3: {fileID: 434470371}
   orden1: 0100000001000000020000000300000001000000
   orden2: 02000000020000000200000003000000
   orden3: 0100000001000000020000000300000001000000
@@ -833,7 +862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522404395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.38, y: 0.16, z: -2.85}
+  m_LocalPosition: {x: -34.38, y: 2, z: -5.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -971,6 +1000,7 @@ GameObject:
   - component: {fileID: 685171392}
   - component: {fileID: 685171396}
   - component: {fileID: 685171397}
+  - component: {fileID: 685171398}
   m_Layer: 0
   m_Name: button1
   m_TagString: Untagged
@@ -1079,6 +1109,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texto: {fileID: 1338281659}
   pressed: 0
+--- !u!114 &685171398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685171391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd26c49c022dcc44cbfce227a913775d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

@@ -78,6 +78,8 @@ public class FMODLoader : MonoBehaviour
         ERRCHECK(result);
         result = system.createSound(path + "bensound-buddy-bucle.wav", MODE.LOOP_NORMAL | MODE._3D, out sounds[7]);
         ERRCHECK(result);
+        result = system.createSound(path + "Water Drop(secuencia).wav", MODE.LOOP_NORMAL | MODE._3D, out sounds[8]);
+        ERRCHECK(result);
     }
 
     public enum SOUNDS
@@ -89,7 +91,8 @@ public class FMODLoader : MonoBehaviour
         WRONG,
         RIGHT,
         BUDDY_START,
-        BUDDY_LOOP
+        BUDDY_LOOP,
+        COMBINATION_WATER_DROP
     }
 
     public Sound getSound(SOUNDS sound)
