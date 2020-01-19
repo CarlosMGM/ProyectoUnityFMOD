@@ -74,6 +74,10 @@ public class FMODLoader : MonoBehaviour
         ERRCHECK(result);
         result = system.createSound(path + "RightAnswer.wav", MODE.DEFAULT | MODE.LOOP_OFF | MODE._3D, out sounds[5]);
         ERRCHECK(result);
+        result = system.createSound(path + "bensound-buddy-start.wav", MODE.DEFAULT | MODE.LOOP_OFF | MODE._3D, out sounds[6]);
+        ERRCHECK(result);
+        result = system.createSound(path + "bensound-buddy-bucle.wav", MODE.LOOP_NORMAL | MODE._3D, out sounds[7]);
+        ERRCHECK(result);
     }
 
     public enum SOUNDS
@@ -83,7 +87,9 @@ public class FMODLoader : MonoBehaviour
         SMACK,
         STEPS,
         WRONG,
-        RIGHT
+        RIGHT,
+        BUDDY_START,
+        BUDDY_LOOP
     }
 
     public Sound getSound(SOUNDS sound)

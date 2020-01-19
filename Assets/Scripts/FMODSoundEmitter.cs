@@ -136,4 +136,16 @@ public class FMODSoundEmitter : MonoBehaviour
         }
 
     }
+
+    public bool isPlaying(FMODLoader.SOUNDS sound)
+    {
+        if (!channels.ContainsKey(sound))
+            return false;
+
+        bool playing;
+        result = channels[sound].isPlaying(out playing);
+
+        return playing;
+        FMODLoader.ERRCHECK(result);
+    }
 }
