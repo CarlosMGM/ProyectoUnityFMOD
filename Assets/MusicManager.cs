@@ -34,32 +34,52 @@ public class MusicManager : MonoBehaviour
         inputReadRanges = new float[10];
 
         inputReadTimes[0] = 0f;
-        inputReadRanges[0] = 0.25f;
-        inputReadTimes[1] = 0.40f;
-        inputReadRanges[1] = 0.25f;
-        inputReadTimes[2] = 0.665f;
-        inputReadRanges[2] = 0.25f;
-        inputReadTimes[3] = 1.09f;
-        inputReadRanges[3] = 0.1f;
-        inputReadTimes[4] = 1.2f;
-        inputReadRanges[4] = 0.125f;
-        inputReadTimes[5] = 1.6f;
-        inputReadRanges[5] = 0.25f;
-        inputReadTimes[6] = 2f;
-        inputReadRanges[6] = 0.25f;
-        inputReadTimes[7] = 2.265f;
-        inputReadRanges[7] = 0.25f;
-        inputReadTimes[8] = 2.69f;
-        inputReadRanges[8] = 0.1f;
-        inputReadTimes[9] = 2.8f;
-        inputReadRanges[9] = 0.125f;
-        inputReadTimes[10] = 3.204f;
+        inputReadRanges[0] = 0.30f;
+        inputReadTimes[1] = 0.53f;
+        inputReadRanges[1] = 0.30f;
+        inputReadTimes[2] = 0.886f;
+        inputReadRanges[2] = 0.30f;
+        inputReadTimes[3] = 1.45f;
+        inputReadRanges[3] = 0.15f;
+        inputReadTimes[4] = 1.61f;
+        inputReadRanges[4] = 0.30f;
+        inputReadTimes[5] = 2.13f;
+        inputReadRanges[5] = 0.30f;
+        inputReadTimes[6] = 2.66f;
+        inputReadRanges[6] = 0.30f;
+        inputReadTimes[7] = 3.02f;
+        inputReadRanges[7] = 0.30f;
+        inputReadTimes[8] = 3.58f;
+        inputReadRanges[8] = 0.15f;
+        inputReadTimes[9] = 3.734f;
+        inputReadRanges[9] = 0.30f;
+        inputReadTimes[10] = 4.272f;
 
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+        if (isLooping && Input.GetKeyDown(rhythmInput))
+        {
+            if (inputOpen)
+            {
+                rhythmCount++;
+                hasPressed = true;
+                print(rhythmCount);
+            }
+            else if (timerCount != 5)
+            {
+                print("Está fuera");
+                rhythmCount = 0;
+                print(rhythmCount);
+                hasPressed = false;
+            }
+                
+
+        }
+
+
         if (first)
         {
             emitter.playSound(start, false);
@@ -109,12 +129,7 @@ public class MusicManager : MonoBehaviour
                    
             }
 
-            if (Input.GetKeyDown(rhythmInput))
-            {
-                rhythmCount++;
-                hasPressed = true;
-                print(rhythmCount);
-            }
+            
         }
     }
 }
