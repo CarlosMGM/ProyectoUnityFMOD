@@ -9,6 +9,8 @@ public class SimonDice : MonoBehaviour
     public Trigger boton2;
     public Trigger boton3;
 
+    public Trigger Reproductor;
+
     FMODSoundEmitter soundEmitter;
     public FMODSoundEmitter soundEmitter1;
     public FMODSoundEmitter soundEmitter2;
@@ -19,6 +21,8 @@ public class SimonDice : MonoBehaviour
     public int[] orden3 = { 1, 1, 2, 3, 1 };
 
     bool done1 = false, done2 = false, done3 = false;
+
+    public GameObject puerta;
 
    public int contador = 0;
     public int botonayuda = 0;
@@ -37,12 +41,17 @@ public class SimonDice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
-        Reproducir();
-
         introducido = false;
+        if (Reproductor.pressed && !introducido)
+        { 
+            introducido = true;
+            if (!ok)
+            { Reproducir();ok = true; }
+        }
+
+          
        
-        if (boton1.pressed && !introducido  )
+        else if (boton1.pressed && !introducido  )
         {
             botonayuda = 1;
             introducido = true;
@@ -106,6 +115,7 @@ public class SimonDice : MonoBehaviour
                 contador = 0;
                 done3 = true;
                 Invoke("Correct", 1);
+                puerta.SetActive(false);
             }
         }
         else if(introducido && !ok) ok = true;

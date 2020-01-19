@@ -18,18 +18,27 @@ public class CombinationGame : MonoBehaviour
     Trigger triger;
     bool canvasActive = false;
     public bool result = false;
-
+    bool play = true;
     // Start is called before the first frame update
     void Start()
     {
         triger = GetComponent<Trigger>();
         soundEmitter = gameObject.GetComponent<FMODSoundEmitter>();
-        gotera.playSound(FMODLoader.SOUNDS.COMBINATION_WATER_DROP, true);
+      
+    }
+    private void Awake()
+    {
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(play)
+        {
+            gotera.playSound(FMODLoader.SOUNDS.COMBINATION_WATER_DROP, true);
+            play = false;
+        }
         if(!canvas.activeInHierarchy)
         {
             canvasActive = false;
